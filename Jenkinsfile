@@ -26,8 +26,8 @@ spring.h2.console.path=/h2
 
 spring.datasource.url=jdbc:mysql://natwestjenkdb.c42lqjjeeosl.eu-west-1.rds.amazonaws.com:3306/tdl
 spring.datasource.data=classpath:data-dev.sql
-spring.datasource.username=<***your_database_username=admin
-spring.datasource.password=<***your_database_password=Langdale071116!' > ./src/main/resources/application-dev.properties
+spring.datasource.username=admin
+spring.datasource.password=password=Langdale071116!' > ./src/main/resources/application-dev.properties
 			mvn clean package
 			'''
 			}
