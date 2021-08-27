@@ -38,7 +38,7 @@ spring.datasource.password=password=Langdale071116!' > ./src/main/resources/appl
 			cd SpringBoot-Jenkins
 			mkdir -p /home/jenkins/Wars
 			mv ./target/*.war /home/jenkins/Wars/project_war.war
-			'''
+			EOF'''
 			}
                 }
 		stage('Stopping Service'){
@@ -46,7 +46,7 @@ spring.datasource.password=password=Langdale071116!' > ./src/main/resources/appl
 			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@52.50.146.105 << EOF
 			cd SpringBoot-Jenkins
 			bash stopservice.sh
-			'''
+			EOF'''
 			}
 		}
 		stage('Create new service file'){
@@ -68,7 +68,7 @@ ExecStart=/home/jenkins/appservice/start.sh
 [Install]
 WantedBy=multi-user.target' > /home/jenkins/myApp.service
 sudo mv /home/jenkins/myApp.service /etc/systemd/system/myApp.service
-			'''
+			EOF'''
 			}
 		}
 		stage('Reload and restart service'){
@@ -76,7 +76,7 @@ sudo mv /home/jenkins/myApp.service /etc/systemd/system/myApp.service
 			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@52.50.146.105 << EOF
 			sudo systemctl daemon-reload
 			sudo systemctl restart myApp
-			'''
+			EOF'''
 			}
 		}
 
