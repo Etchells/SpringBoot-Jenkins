@@ -17,7 +17,7 @@ pipeline {
 			steps{
 			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@52.50.146.105 << EOF
 			rm -rf SpringBoot-Jenkins
-			git clone https://github.com/https://github.com/Etchells/SpringBoot-Jenkins.git
+			git clone https://github.com/Etchells/SpringBoot-Jenkins.git
 			cd SpringBoot-Jenkins
 			rm -f ./src/main/resources/application-dev.properties
 			echo 'spring.jpa.hibernate.ddl-auto=create-drop
