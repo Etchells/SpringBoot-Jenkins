@@ -29,7 +29,7 @@ spring.datasource.data=classpath:data-dev.sql
 spring.datasource.username=admin
 spring.datasource.password=password=Langdale071116!' > ./src/main/resources/application-dev.properties
 			mvn clean package
-			'''
+			EOF'''
 			}
 		}
 		stage('Moving War'){
