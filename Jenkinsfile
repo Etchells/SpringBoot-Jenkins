@@ -24,7 +24,7 @@ pipeline {
 spring.h2.console.enabled=false
 spring.h2.console.path=/h2
 
-spring.datasource.url=jdbc:mysql://natwestjenkdb.c42lqjjeeosl.eu-west-1.rds.amazonaws.com:3306/tdl
+spring.datasource.url=jdbc:mysql://natwestjenkdb.c42lqjjeeosl.eu-west-1.rds.amazonaws.com/tdl
 spring.datasource.data=classpath:data-dev.sql
 spring.datasource.username=admin
 spring.datasource.password=password=Langdale071116!' > ./src/main/resources/application-dev.properties
