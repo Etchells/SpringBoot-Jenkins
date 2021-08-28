@@ -15,8 +15,8 @@ pipeline {
 		}
 		stage('SSH Build Deploy'){
 			steps{
-			//sh '''ssh -i "~/.ssh/jenkins_key" jenkins@52.50.146.105 << EOF
-			sh '''ssh -i "/home/jenkins/.ssh/jenkins_key" jenkins@52.50.146.105 << EOF
+			//sh '''ssh -i "~/.ssh/jenkins_key" jenkins@34.254.234.141 << EOF
+			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@34.254.234.141 << EOF
 			rm -rf SpringBoot-Jenkins
 			git clone https://github.com/Etchells/SpringBoot-Jenkins.git
 			cd SpringBoot-Jenkins
@@ -35,7 +35,7 @@ spring.datasource.password=password=Langdale071116!' > ./src/main/resources/appl
 		}
 		stage('Moving War'){
 			steps{
-			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@52.50.146.105	<< EOF
+			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@34.254.234.141	<< EOF
 			cd SpringBoot-Jenkins
 			mkdir -p /home/jenkins/Wars
 			mv ./target/*.war /home/jenkins/Wars/project_war.war
@@ -44,7 +44,7 @@ spring.datasource.password=password=Langdale071116!' > ./src/main/resources/appl
                 }
 		stage('Stopping Service'){
 			steps{
-			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@52.50.146.105 << EOF
+			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@34.254.234.141 << EOF
 			cd SpringBoot-Jenkins
 			bash stopservice.sh
 			'''
@@ -52,7 +52,7 @@ spring.datasource.password=password=Langdale071116!' > ./src/main/resources/appl
 		}
 		stage('Create new service file'){
 			steps{
-			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@52.50.146.105 << EOF
+			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@34.254.234.141 << EOF
 			mkdir -p /home/jenkins/appservice
 			echo '#!/bin/bash
 sudo java -jar /home/jenkins/Wars/project_war.war' > /home/jenkins/appservice/start.sh
@@ -74,7 +74,7 @@ sudo mv /home/jenkins/myApp.service /etc/systemd/system/myApp.service
 		}
 		stage('Reload and restart service'){
 			steps{
-			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@52.50.146.105 << EOF
+			sh '''ssh -i "~/.ssh/jenkins_key" jenkins@34.254.234.141 << EOF
 			sudo systemctl daemon-reload
 			sudo systemctl restart myApp
 			'''
